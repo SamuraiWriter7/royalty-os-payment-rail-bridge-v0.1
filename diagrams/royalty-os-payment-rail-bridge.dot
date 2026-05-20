@@ -1,0 +1,111 @@
+digraph RoyaltyOSPaymentRailBridge {
+  rankdir=TB;
+
+  graph [
+    fontname="Helvetica",
+    label="Royalty OS Payment Rail Bridge v0.1",
+    labelloc=top
+  ];
+
+  node [
+    shape=box,
+    style="rounded",
+    fontname="Helvetica"
+  ];
+
+  edge [
+    fontname="Helvetica"
+  ];
+
+  Question [
+    label="Question / Idea / Structure\n問い・思想・構造"
+  ];
+
+  Origin [
+    label="Origin Detection Layer\n震源検出レイヤー"
+  ];
+
+  Trace [
+    label="Trace Layer\n痕跡記録レイヤー"
+  ];
+
+  Score [
+    label="Impact / Seismic Score Layer\n影響度・震源スコア"
+  ];
+
+  Readiness [
+    label="Allocation Readiness Layer\n分配準備・裁定ゲート"
+  ];
+
+  RoyaltyOS [
+    label="Royalty OS Layer\n分配ルール・受益者マッピング"
+  ];
+
+  Bridge [
+    label="Payment Rail Bridge Layer\n決済水脈ブリッジ"
+  ];
+
+  Rail [
+    label="External Payment Rail Layer\nWallet / P2P / XMoney Candidate\n外部決済レール"
+  ];
+
+  Recipients [
+    label="Recipient Layer\nCreators / Agents / Platforms / Readers\n創作者・AI・平台・読者"
+  ];
+
+  Feedback [
+    label="Next Question / New Source\n次の問い・新たな震源"
+  ];
+
+  Question -> Origin [
+    label="emerges as source"
+  ];
+
+  Origin -> Trace [
+    label="leaves trace"
+  ];
+
+  Trace -> Score [
+    label="evaluated as impact"
+  ];
+
+  Score -> Readiness [
+    label="checked for readiness"
+  ];
+
+  Readiness -> RoyaltyOS [
+    label="prepared for allocation"
+  ];
+
+  RoyaltyOS -> Bridge [
+    label="allocation intent"
+  ];
+
+  Bridge -> Rail [
+    label="payment-compatible instruction"
+  ];
+
+  Rail -> Recipients [
+    label="settlement / circulation"
+  ];
+
+  Recipients -> Feedback [
+    label="value returns"
+  ];
+
+  Feedback -> Question [
+    label="generates new questions"
+  ];
+
+  subgraph cluster_context {
+    label="Trace-aware, review-aware, dispute-aware circulation";
+    style="dashed";
+    color="gray";
+
+    Trace;
+    Score;
+    Readiness;
+    RoyaltyOS;
+    Bridge;
+  }
+}
