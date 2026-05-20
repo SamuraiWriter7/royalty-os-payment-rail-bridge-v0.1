@@ -1,0 +1,153 @@
+xmoney_candidate_flow:
+  flow_id: flow_xmoney_candidate_2026_05_20_001
+  version: "0.1.1"
+  status: sample
+
+  description: >
+    Sample flow showing how Royalty OS allocation intent may be translated
+    into a payment-rail candidate flow using XMoney as a conceptual Water-layer
+    candidate.
+
+  important_notice:
+    official_integration: false
+    payment_executed: false
+    production_ready: false
+    note: >
+      This sample does not claim official integration with XMoney.
+      It does not execute payment. It only demonstrates a conceptual flow.
+
+  upstream_allocation_intent:
+    allocation_id: alloc_2026_05_20_001
+    source_file: examples/allocation-intent.sample.yaml
+    input_type: allocation_intent
+    status: pending_bridge_translation
+
+  bridge_translation:
+    bridge_id: bridge_sample_001
+    bridge_layer: payment_rail_bridge
+    translation_status: prepared_as_candidate_flow
+    input:
+      - allocation_id
+      - origin_reference
+      - trace_reference
+      - scoring_reference
+      - recipient_reference
+      - allocation_value
+      - review_status
+      - dispute_status
+      - payment_eligibility
+    output:
+      type: payment_rail_instruction_candidate
+      payment_rail_candidate: xmoney_candidate
+    preserves_context:
+      - trace_context
+      - allocation_context
+      - review_context
+      - dispute_context
+      - settlement_context
+
+  value_context:
+    origin_reference: origin_kazene_question_001
+    trace_reference: trace_kazene_value_circulation_001
+    scoring_reference: score_value_circulation_001
+    allocation_reference: alloc_2026_05_20_001
+    value_layer_mapping:
+      wood: origin_reference
+      fire: resonance_or_influence
+      earth: trace_reference
+      metal: allocation_reference
+      water: payment_rail_candidate_flow
+
+  recipient_mapping:
+    recipient_reference: contributor_shidenkai_alpha
+    recipient_type: human_creator
+    payment_identity_status: unresolved_sample
+    payment_identity:
+      type: placeholder
+      value: null
+    notes: >
+      Real implementations would require verified recipient mapping.
+      This sample intentionally does not include real account, wallet,
+      or personally identifying payment information.
+
+  payment_rail_candidate:
+    rail_candidate_id: xmoney_candidate
+    rail_name: XMoney
+    rail_layer: water
+    rail_type:
+      - wallet
+      - p2p_payment
+      - platform_integrated_payment
+    status: candidate
+    official_integration: false
+    required: false
+    notes: >
+      XMoney is represented only as one possible payment-rail candidate.
+      Royalty OS Payment Rail Bridge remains payment-rail-neutral.
+
+  candidate_instruction:
+    instruction_id: instr_xmoney_candidate_001
+    instruction_type: conceptual_payment_rail_instruction
+    payment_execution_status: not_executed
+    settlement_unit:
+      type: unspecified
+      unit: placeholder
+      amount: null
+    allocation_value:
+      type: share
+      value: 0.15
+      unit: ratio
+    payment_intent:
+      type: royalty_distribution_candidate
+      description: >
+        Conceptual instruction representing a possible royalty distribution
+        derived from trace-aware allocation logic.
+    required_before_execution:
+      - verified_recipient_identity
+      - approved_payment_eligibility
+      - compliance_review
+      - payment_rail_api_specification
+      - dispute_status_check
+      - settlement_unit_definition
+
+  review_and_dispute_context:
+    review_status: approved_for_sample
+    dispute_status: none
+    correction_path_available: true
+    reversal_path_required: true
+    notes: >
+      Even when a candidate flow is prepared, dispute and correction paths
+      should remain available.
+
+  settlement_context:
+    settlement_status: not_sent
+    settlement_reference: null
+    settlement_provider_reference: null
+    settlement_attempted_at: null
+    settlement_completed_at: null
+    notes: >
+      No settlement has been sent or completed. This is a candidate flow only.
+
+  lifecycle:
+    current_state: prepared_candidate
+    allowed_next_states:
+      - pending_recipient_verification
+      - pending_compliance_review
+      - blocked
+      - superseded
+    not_allowed_without_additional_review:
+      - sent_to_payment_rail
+      - completed
+      - reversed
+    notes: >
+      This sample cannot move to real settlement without additional interface,
+      compliance, recipient, and dispute checks.
+
+  safety_notes:
+    - This sample does not execute payment.
+    - This sample does not define an official XMoney interface.
+    - This sample does not include real payment credentials.
+    - This sample does not determine legal ownership.
+    - This sample does not bypass compliance or KYC.
+    - This sample preserves payment rail neutrality.
+    - This sample demonstrates candidate flow structure only.
