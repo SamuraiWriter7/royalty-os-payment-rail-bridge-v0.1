@@ -1,0 +1,511 @@
+id: royalty-os-payment-rail-bridge-v0.1
+title: Royalty OS Payment Rail Bridge v0.1
+version: 0.1.0
+status: draft
+
+description: >
+  A minimal bridge architecture connecting Royalty OS allocation logic
+  to external payment rails through trace-aware, review-aware,
+  and dispute-aware value circulation.
+
+purpose:
+  summary: >
+    Define the bridge layer between Royalty OS and external payment rails.
+  goals:
+    - preserve trace context during value circulation
+    - translate allocation intent into payment-compatible instructions
+    - support payment rail neutrality
+    - prepare for agent-native micropayment flows
+    - connect Royalty OS to external settlement systems without lock-in
+  scope:
+    - trace-aware value circulation
+    - allocation-to-payment bridge
+    - payment rail candidate modeling
+    - agent-native micropayment readiness
+    - five-elements value circulation mapping
+
+principles:
+  - id: trace_before_payment
+    statement: >
+      Payment circulation should preserve trace context and should not occur
+      as blind transfer when allocation logic depends on origin or influence records.
+
+  - id: allocation_before_settlement
+    statement: >
+      External payment rails should receive allocation intent only after
+      review-aware allocation logic has been prepared.
+
+  - id: payment_rail_neutrality
+    statement: >
+      Royalty OS should not depend on a single payment rail, provider,
+      platform, currency, or jurisdiction.
+
+  - id: review_awareness
+    statement: >
+      Impact, influence, or seismic scores should not automatically become
+      payment instructions without readiness or review gates.
+
+  - id: dispute_preservation
+    statement: >
+      Allocation-to-payment flows should preserve dispute, correction,
+      suspension, reversal, or supersession paths where applicable.
+
+  - id: value_money_distinction
+    statement: >
+      Money circulates value but does not define value by itself.
+
+core_layers:
+  - id: origin_detection_layer
+    name: Origin Detection Layer
+    element: wood
+    role: >
+      Detects possible sources of value, including questions, ideas,
+      structures, creative works, protocols, and human-AI collaborative artifacts.
+    upstream: []
+    downstream:
+      - trace_layer
+    responsibilities:
+      - identify possible value sources
+      - identify seismic source candidates
+      - preserve origin references
+    non_responsibilities:
+      - determine legal ownership
+      - execute payments
+      - assign final allocation
+
+  - id: trace_layer
+    name: Trace Layer
+    element: earth
+    role: >
+      Records influence, reference, access, communication, lineage,
+      or structural impact traces.
+    upstream:
+      - origin_detection_layer
+    downstream:
+      - scoring_layer
+    responsibilities:
+      - record trace references
+      - preserve evidence context
+      - support lineage and provenance awareness
+    non_responsibilities:
+      - automatically determine payment
+      - replace review
+      - resolve disputes alone
+
+  - id: scoring_layer
+    name: Impact / Seismic Score Layer
+    element: metal
+    role: >
+      Evaluates contribution, influence, resonance, question gravity,
+      or structural impact.
+    upstream:
+      - trace_layer
+    downstream:
+      - allocation_readiness_layer
+    responsibilities:
+      - calculate or represent impact signals
+      - provide scoring context
+      - preserve confidence or uncertainty where available
+    non_responsibilities:
+      - directly execute payment
+      - replace allocation readiness
+      - create legal claims by itself
+
+  - id: allocation_readiness_layer
+    name: Allocation Readiness Layer
+    element: metal
+    role: >
+      Determines whether a claim or allocation is ready to move toward
+      Royalty OS allocation logic.
+    upstream:
+      - scoring_layer
+    downstream:
+      - royalty_os_layer
+    responsibilities:
+      - review trace quality
+      - review scoring confidence
+      - preserve dispute status
+      - determine payment eligibility state
+      - prevent premature circulation
+    non_responsibilities:
+      - execute external settlement
+      - remove dispute paths
+      - bypass human or multi-agent review
+
+  - id: royalty_os_layer
+    name: Royalty OS Layer
+    element: metal
+    role: >
+      Defines allocation logic, recipient mapping, and value distribution rules.
+    upstream:
+      - allocation_readiness_layer
+    downstream:
+      - payment_rail_bridge_layer
+    responsibilities:
+      - define allocation intent
+      - define recipient references
+      - preserve trace and review references
+      - remain payment-rail-neutral
+    non_responsibilities:
+      - depend on a single payment rail
+      - execute all settlement directly
+      - erase review or dispute context
+
+  - id: payment_rail_bridge_layer
+    name: Payment Rail Bridge Layer
+    element: transition_metal_to_water
+    role: >
+      Converts Royalty OS allocation intent into payment-rail-compatible
+      settlement instructions while preserving trace, review, and dispute context.
+    upstream:
+      - royalty_os_layer
+    downstream:
+      - external_payment_rail_layer
+    responsibilities:
+      - translate allocation intent
+      - preserve trace references
+      - preserve allocation references
+      - map recipients to payment-compatible identities
+      - attach payment intent
+      - attach review and dispute status
+      - receive settlement status
+      - avoid payment rail lock-in
+    non_responsibilities:
+      - define value by itself
+      - claim official integration with any rail
+      - bypass compliance requirements
+      - remove dispute metadata
+
+  - id: external_payment_rail_layer
+    name: External Payment Rail Layer
+    element: water
+    role: >
+      Represents external infrastructure through which allocated value may circulate.
+    upstream:
+      - payment_rail_bridge_layer
+    downstream:
+      - recipient_layer
+    examples:
+      - wallet systems
+      - P2P payment networks
+      - micropayment rails
+      - stablecoin rails
+      - programmable settlement systems
+      - agent-native payment layers
+      - XMoney as one possible candidate
+    responsibilities:
+      - move money, credits, tokens, points, or settlement units
+      - return settlement status
+      - preserve compatible transaction references where possible
+    non_responsibilities:
+      - determine origin
+      - determine trace
+      - determine contribution
+      - replace Royalty OS allocation logic
+
+  - id: recipient_layer
+    name: Recipient Layer
+    element: water_to_wood
+    role: >
+      Receives circulated value and may generate new questions, structures,
+      artifacts, or value sources.
+    upstream:
+      - external_payment_rail_layer
+    downstream:
+      - origin_detection_layer
+    examples:
+      - creators
+      - AI agents
+      - platforms
+      - readers
+      - reviewers
+      - maintainers
+      - communities
+      - protocol contributors
+    responsibilities:
+      - receive value
+      - preserve receipt or settlement references where applicable
+      - potentially generate new value sources
+    non_responsibilities:
+      - override trace records
+      - erase allocation context
+
+five_elements_mapping:
+  wood:
+    element: Wood
+    civilization_layer: Origin Layer
+    meaning: Questions, structures, seismic sources
+    role: >
+      Generates new origin points of value.
+    corresponding_layers:
+      - origin_detection_layer
+    generates:
+      - fire
+
+  fire:
+    element: Fire
+    civilization_layer: Resonance Layer
+    meaning: Resonance, diffusion, cultural heat, attention
+    role: >
+      Spreads influence and activates collective attention.
+    corresponding_layers:
+      - trace_layer
+    generates:
+      - earth
+
+  earth:
+    element: Earth
+    civilization_layer: Trace Layer
+    meaning: Institutions, protocols, records, trace storage
+    role: >
+      Stabilizes resonance into recorded structure.
+    corresponding_layers:
+      - trace_layer
+      - allocation_readiness_layer
+    generates:
+      - metal
+
+  metal:
+    element: Metal
+    civilization_layer: Allocation Layer
+    meaning: Scoring, allocation, value crystallization
+    role: >
+      Crystallizes influence into review-aware and distributable value logic.
+    corresponding_layers:
+      - scoring_layer
+      - allocation_readiness_layer
+      - royalty_os_layer
+    generates:
+      - water
+
+  water:
+    element: Water
+    civilization_layer: Payment Rail Layer
+    meaning: Payment rails, liquidity, settlement, value flow
+    role: >
+      Circulates value back to sources, recipients, and future origin points.
+    corresponding_layers:
+      - payment_rail_bridge_layer
+      - external_payment_rail_layer
+      - recipient_layer
+    generates:
+      - wood
+
+generative_cycle:
+  - from: wood
+    to: fire
+    meaning: Questions generate resonance.
+  - from: fire
+    to: earth
+    meaning: Resonance stabilizes into trace.
+  - from: earth
+    to: metal
+    meaning: Trace crystallizes into scoring and allocation logic.
+  - from: metal
+    to: water
+    meaning: Allocation becomes payment flow.
+  - from: water
+    to: wood
+    meaning: Circulated value nourishes new questions.
+
+control_cycle:
+  - from: wood
+    to: earth
+    meaning: >
+      Inquiry renews institutions but should not dissolve institutional stability.
+  - from: fire
+    to: metal
+    meaning: >
+      Attention influences evaluation but should not replace allocation logic.
+  - from: earth
+    to: water
+    meaning: >
+      Governance guides liquidity but should not freeze circulation.
+  - from: metal
+    to: wood
+    meaning: >
+      Measurement recognizes value but should not enslave questions.
+  - from: water
+    to: fire
+    meaning: >
+      Liquidity may amplify resonance but should not become artificial hype.
+
+allocation_intent:
+  description: >
+    A conceptual object passed from Royalty OS to the Payment Rail Bridge.
+  required_context:
+    - allocation_id
+    - origin_reference
+    - trace_reference
+    - recipient_reference
+    - allocation_value
+    - review_status
+    - dispute_status
+    - payment_eligibility
+    - payment_rail_candidate
+  conceptual_shape:
+    allocation_id: string
+    origin_reference: string
+    trace_reference: string
+    recipient_reference: string
+    allocation_value:
+      type:
+        allowed:
+          - share
+          - amount
+          - points
+          - credits
+          - other
+      value: number
+      unit: string
+    review_status:
+      allowed:
+        - pending
+        - approved
+        - blocked
+        - disputed
+        - resolved
+    dispute_status:
+      allowed:
+        - none
+        - contested
+        - suspended
+        - resolved
+        - reversed
+        - superseded
+    payment_eligibility:
+      allowed:
+        - eligible
+        - not_eligible
+        - pending_review
+    payment_rail_candidate: string
+    settlement_status:
+      allowed:
+        - pending
+        - completed
+        - failed
+        - blocked
+        - reversed
+
+payment_rail_candidate:
+  description: >
+    A conceptual model for representing an external payment rail candidate.
+  example:
+    id: xmoney_candidate
+    name: XMoney
+    status: candidate
+    layer: water
+    type:
+      - wallet
+      - p2p_payment
+      - platform_integrated_payment
+    role: >
+      Possible external payment rail candidate for future value circulation.
+    official_integration: false
+    required: false
+    depends_on:
+      - payment_rail_bridge_layer
+      - royalty_os_layer
+    requires_context:
+      - trace_reference
+      - allocation_reference
+      - recipient_mapping
+      - review_status
+      - dispute_status
+      - settlement_status
+    caution:
+      - This specification does not claim official integration with XMoney.
+      - This specification does not depend on XMoney.
+      - XMoney is used only as a conceptual candidate within the Water layer.
+
+bridge_metadata:
+  description: >
+    Metadata that should be preserved when allocation intent is translated
+    into payment-rail-compatible instructions.
+  recommended_fields:
+    - bridge_id
+    - allocation_id
+    - trace_reference
+    - origin_reference
+    - recipient_reference
+    - payment_rail_candidate
+    - payment_intent
+    - review_status
+    - dispute_status
+    - settlement_status
+    - created_at
+    - updated_at
+    - version
+
+settlement_statuses:
+  pending:
+    meaning: Settlement has been prepared but not completed.
+  completed:
+    meaning: Settlement has been completed by the external rail.
+  failed:
+    meaning: Settlement failed.
+  blocked:
+    meaning: Settlement was blocked due to readiness, dispute, compliance, or rail failure.
+  reversed:
+    meaning: Settlement was reversed or corrected after completion.
+
+dispute_statuses:
+  none:
+    meaning: No known dispute is attached.
+  contested:
+    meaning: Allocation or trace context is contested.
+  suspended:
+    meaning: Allocation or settlement is suspended pending review.
+  resolved:
+    meaning: Dispute has been resolved.
+  reversed:
+    meaning: A prior allocation or settlement has been reversed.
+  superseded:
+    meaning: A newer record supersedes this allocation or settlement context.
+
+safety_principles:
+  - id: no_direct_payment_without_trace
+    statement: Payment circulation should not occur without trace context.
+
+  - id: no_allocation_without_review
+    statement: Allocation should pass readiness, review, or dispute-aware checks.
+
+  - id: no_payment_rail_lock_in
+    statement: Royalty OS should not depend on a single payment rail.
+
+  - id: distinguish_value_from_money
+    statement: Money circulates value but does not define value by itself.
+
+  - id: preserve_dispute_path
+    statement: Every allocation-to-payment flow should preserve a dispute or correction path.
+
+  - id: no_official_xmoney_claim
+    statement: >
+      This specification must not be presented as an official XMoney integration
+      or partnership.
+
+non_goals:
+  - legal payment execution
+  - official XMoney integration
+  - ownership determination
+  - automatic copyright enforcement
+  - bypassing compliance, KYC, or financial regulation
+  - replacing human or multi-agent review
+  - converting every influence signal into payment
+  - removing dispute or correction paths
+
+status_notes:
+  maturity: conceptual_architecture
+  intended_use:
+    - specification drafting
+    - architecture discussion
+    - value circulation modeling
+    - agent payment readiness analysis
+    - Royalty OS bridge design
+  not_intended_use:
+    - production payment execution
+    - legal claims
+    - compliance substitution
+    - official integration claims
+
+license: MIT
