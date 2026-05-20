@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "Royalty OS Payment Rail Bridge v0.1"
+message: "If you use this specification, please cite it as follows."
+type: software
+authors:
+  - name: "Shidenkai Alpha"
+version: "0.1.0"
+date-released: "2026-05-20"
+repository-code: "https://github.com/SamuraiWriter7/royalty-os-payment-rail-bridge-v0.1"
+license: "MIT"
+keywords:
+  - Royalty OS
+  - Payment Rail
+  - Value Circulation
+  - Trace Architecture
+  - Allocation Readiness
+  - XMoney
+  - AI Agents
+  - Micropayments
+  - Kazene
+  - Civilization OS
+  - Five Elements
+abstract: >
+  Royalty OS Payment Rail Bridge v0.1 defines a minimal bridge architecture
+  connecting Royalty OS allocation logic to external payment rails through
+  trace-aware, review-aware, and dispute-aware value circulation.
