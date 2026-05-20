@@ -138,7 +138,11 @@ have prepared the conditions for circulation.
 │   ├── architecture-overview.md
 │   ├── five-elements-value-circulation-model.md
 │   ├── xmoney-as-payment-rail-candidate.md
-│   └── relationship-to-royalty-os.md
+│   ├── relationship-to-royalty-os.md
+│   └── future-extensions.md
+├── examples/
+│   ├── allocation-intent.sample.yaml
+│   └── xmoney-candidate-flow.sample.yaml
 ├── diagrams/
 │   ├── royalty-os-payment-rail-bridge.dot
 │   └── five-elements-value-circulation.dot
@@ -259,7 +263,31 @@ External Payment Rail = settlement channel
 
 ---
 
-### 5. Specification File
+### 5. Future Extensions
+
+Then read:
+
+```text
+docs/future-extensions.md
+```
+
+This document separates the current v0.1 scope from possible future extensions.
+
+It outlines possible directions such as:
+
+- Royalty Event Layer
+- Allocation Intent Schema
+- Payment Rail Candidate Profile
+- Bridge Lifecycle Model
+- Validation and CI
+- Agent-native payment interface
+- Payment rail interface profiles
+
+This document is a roadmap, not a production specification.
+
+---
+
+### 6. Specification File
 
 After reading the documents, review:
 
@@ -281,7 +309,64 @@ This YAML file defines the core conceptual specification, including:
 
 ---
 
-### 6. Diagrams
+### 7. Examples
+
+Then review the sample files.
+
+```text
+examples/allocation-intent.sample.yaml
+examples/xmoney-candidate-flow.sample.yaml
+```
+
+These examples show how the architecture may be represented in sample objects.
+
+#### Allocation Intent Sample
+
+```text
+examples/allocation-intent.sample.yaml
+```
+
+This file shows a sample allocation intent prepared by Royalty OS before being
+translated into payment-rail-compatible instructions.
+
+It demonstrates:
+
+- origin reference
+- trace context
+- contribution description
+- scoring reference
+- allocation value
+- review status
+- dispute status
+- payment eligibility
+- payment rail candidate reference
+
+#### XMoney Candidate Flow Sample
+
+```text
+examples/xmoney-candidate-flow.sample.yaml
+```
+
+This file shows a conceptual candidate flow using XMoney as one possible
+Water-layer payment rail candidate.
+
+It demonstrates:
+
+- bridge translation
+- context preservation
+- recipient mapping
+- payment rail candidate modeling
+- candidate instruction
+- settlement status
+- lifecycle constraints
+- safety notes
+
+The example does not execute payment and does not claim official integration
+with XMoney.
+
+---
+
+### 8. Diagrams
 
 Finally, review the Graphviz diagrams.
 
@@ -375,6 +460,75 @@ XMoney is the official payment layer of Royalty OS.
 
 ---
 
+## Examples
+
+This repository includes two sample YAML files.
+
+### Allocation Intent
+
+```text
+examples/allocation-intent.sample.yaml
+```
+
+This sample represents allocation intent before payment rail translation.
+
+It is intended to show how Royalty OS may prepare context before value moves
+toward an external payment rail.
+
+It does not execute payment.
+
+### XMoney Candidate Flow
+
+```text
+examples/xmoney-candidate-flow.sample.yaml
+```
+
+This sample represents a conceptual candidate flow in which XMoney is treated
+as one possible payment rail.
+
+It does not claim official XMoney integration.
+
+It does not include real payment credentials.
+
+It does not execute settlement.
+
+---
+
+## Future Extensions
+
+Future versions may extend this repository toward more formal implementation
+objects and validation workflows.
+
+Possible future extensions include:
+
+```text
+Royalty Event Layer
+Allocation Intent Schema
+Payment Rail Candidate Profile
+Bridge Lifecycle Model
+Validation and CI
+Agent-native Payment Interface
+Payment Rail Interface Profiles
+```
+
+The current repository remains a conceptual architecture and sample specification.
+
+The future direction is:
+
+```text
+Conceptual bridge
+   ↓
+Machine-readable schema
+   ↓
+Validated examples
+   ↓
+Agent-native circulation
+   ↓
+Interoperable payment rail profiles
+```
+
+---
+
 ## Safety Principles
 
 This repository follows several safety principles.
@@ -462,10 +616,11 @@ That loop is the beginning of value circulation civilization.
 
 ## Status
 
-Version: v0.1.0  
+Version: v0.1.1  
+Specification: v0.1.0  
 Status: Draft  
-Maturity: Conceptual architecture  
-Scope: Specification draft
+Maturity: Conceptual architecture with examples  
+Scope: Specification draft, roadmap, and sample flows
 
 ---
 
