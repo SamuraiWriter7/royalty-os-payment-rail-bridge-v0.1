@@ -1,0 +1,96 @@
+digraph FiveElementsValueCirculation {
+  rankdir=LR;
+
+  graph [
+    fontname="Helvetica",
+    label="Five Elements Value Circulation Model",
+    labelloc=top
+  ];
+
+  node [
+    shape=box,
+    style="rounded",
+    fontname="Helvetica"
+  ];
+
+  edge [
+    fontname="Helvetica"
+  ];
+
+  Wood [
+    label="Wood\nQuestions / Structures / Seismic Sources\n木：問い・構造・震源"
+  ];
+
+  Fire [
+    label="Fire\nResonance / Diffusion / Cultural Heat\n火：共鳴・拡散・文化的熱量"
+  ];
+
+  Earth [
+    label="Earth\nInstitutions / Trace / Protocols\n土：制度・痕跡・プロトコル"
+  ];
+
+  Metal [
+    label="Metal\nScoring / Allocation / Value Crystallization\n金：評価・分配・価値の結晶"
+  ];
+
+  Water [
+    label="Water\nPayment Rails / Liquidity / XMoney Candidate\n水：決済水脈・価値循環"
+  ];
+
+  Wood -> Fire [
+    label="generates resonance\n問いが共鳴を生む"
+  ];
+
+  Fire -> Earth [
+    label="stabilizes into trace\n共鳴が痕跡として安定する"
+  ];
+
+  Earth -> Metal [
+    label="crystallizes value\n痕跡が価値として結晶化する"
+  ];
+
+  Metal -> Water [
+    label="converts into flow\n価値が流れへ変わる"
+  ];
+
+  Water -> Wood [
+    label="nourishes new questions\n流れが次の問いを育てる"
+  ];
+
+  Wood -> Earth [
+    style=dashed,
+    label="control\n問いは制度を更新する"
+  ];
+
+  Fire -> Metal [
+    style=dashed,
+    label="control\n熱量は評価を揺さぶる"
+  ];
+
+  Earth -> Water [
+    style=dashed,
+    label="control\n制度は流れを制御する"
+  ];
+
+  Metal -> Wood [
+    style=dashed,
+    label="control\n評価は問いを整える"
+  ];
+
+  Water -> Fire [
+    style=dashed,
+    label="control\n流れは熱量を鎮める"
+  ];
+
+  subgraph cluster_generative_cycle {
+    label="Generative Cycle / 相生";
+    style="dotted";
+    color="gray";
+
+    Wood;
+    Fire;
+    Earth;
+    Metal;
+    Water;
+  }
+}
